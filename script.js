@@ -10,6 +10,7 @@ const winResult = document.getElementById("winResult");
 const drawResult = document.getElementById("drawResult");
 const loseResult = document.getElementById("loseResult");
 
+//Estado
 let win = 0;
 let draw = 0;
 let lose = 0;
@@ -42,11 +43,14 @@ function game(play, pc) {
     textMsg.textContent = "Ganaste.";
     ++win;
   }
+  updateScore();
+}
+
+function updateScore() {
   winResult.textContent = win;
   drawResult.textContent = draw;
   loseResult.textContent = lose;
 }
-
 //Eventos
 btnRock.addEventListener("click", () => {
   let choice = randomPlay();
@@ -73,7 +77,8 @@ reset.addEventListener("click", () => {
   textPlayer.textContent = "";
   textMsg.textContent = "";
   textCpu.textContent = "";
-  winResult.textContent = 0;
-  drawResult.textContent = 0;
-  loseResult.textContent = 0;
+  win = 0;
+  draw = 0;
+  lose = 0;
+  updateScore();
 });
